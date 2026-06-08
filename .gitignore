@@ -1,0 +1,40 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# database (SQLite)
+prisma/*.db
+prisma/*.db-journal
+
+# user-uploaded attachments (live on disk, never committed/deployed)
+/uploads
+
+# local SQLite backups (scripts/backup-db.sh) + Telegram backups
+/backups
+
+# runtime error log (created on demand) + test scratch DBs
+/.logs
+/tests/.tmp
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
