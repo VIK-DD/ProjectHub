@@ -99,8 +99,14 @@ productivity in analytics — in a calm, fast, light/dark interface inspired by
 | <img src="docs/screenshots/tasks.png" alt="Kanban board" width="420"/> | <img src="docs/screenshots/analytics.png" alt="Analytics" width="420"/> |
 | **Projects** | **Notes** |
 | <img src="docs/screenshots/projects.png" alt="Projects" width="420"/> | <img src="docs/screenshots/notes.png" alt="Notes" width="420"/> |
+| **Command palette (⌘K)** | **Sign in** |
+| <img src="docs/screenshots/command-palette.png" alt="Command palette" width="420"/> | <img src="docs/screenshots/login.png" alt="Sign in" width="420"/> |
 
 <img src="docs/screenshots/calendar.png" alt="Calendar" width="860"/>
+
+#### 📱 Mobile
+
+<img src="docs/screenshots/mobile-dashboard.png" alt="Mobile dashboard" width="240"/> &nbsp;&nbsp; <img src="docs/screenshots/mobile-menu.png" alt="Mobile navigation" width="240"/>
 
 </div>
 
