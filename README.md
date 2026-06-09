@@ -10,7 +10,7 @@ productivity in analytics — in a calm, fast, light/dark interface inspired by
 
 <br/>
 
-[![Version](https://img.shields.io/badge/version-1.0.0-6d28d9)](https://github.com/VIK-DD/ProjectHub/releases)
+[![Version](https://img.shields.io/github/v/release/VIK-DD/ProjectHub?label=version&color=6d28d9)](https://github.com/VIK-DD/ProjectHub/releases/latest)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
