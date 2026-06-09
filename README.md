@@ -414,5 +414,5 @@ you'd like to change. Run `npm run lint` and `npm test` before submitting.
 </p>
 
 <p align="center">
-  <sub><strong>Made to be calm, fast, and yours</strong> · Made in Moldova 🇲🇩</sub>
+  <strong>Made to be calm, fast, and yours</strong> · Made in Moldova 🇲🇩
 </p>
