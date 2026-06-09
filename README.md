@@ -94,6 +94,8 @@ productivity in analytics — in a calm, fast, light/dark interface inspired by
 
 ## 📸 Screenshots
 
+### 🖥️ Desktop
+
 <div align="center">
 
 | Kanban board | Analytics |
@@ -104,11 +106,19 @@ productivity in analytics — in a calm, fast, light/dark interface inspired by
 | **Command palette (⌘K)** | **Sign in** |
 | <img src="docs/screenshots/command-palette.png" alt="Command palette" width="420"/> | <img src="docs/screenshots/login.png" alt="Sign in" width="420"/> |
 
+**Calendar**
+
 <img src="docs/screenshots/calendar.png" alt="Calendar" width="860"/>
 
-#### 📱 Mobile
+</div>
 
-<img src="docs/screenshots/mobile-dashboard.png" alt="Mobile dashboard" width="240"/> &nbsp;&nbsp; <img src="docs/screenshots/mobile-menu.png" alt="Mobile navigation" width="240"/>
+### 📱 Mobile
+
+<div align="center">
+
+| Dashboard | Navigation drawer |
+| :---: | :---: |
+| <img src="docs/screenshots/mobile-dashboard.png" alt="Mobile dashboard" width="260"/> | <img src="docs/screenshots/mobile-menu.png" alt="Mobile navigation drawer" width="260"/> |
 
 </div>
 
