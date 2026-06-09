@@ -2,6 +2,7 @@
   "name": "projecthub",
   "version": "1.0.0",
   "private": true,
+  "license": "Apache-2.0",
   "description": "ProjectHub — a premium personal project management platform. Built to run anywhere, even a Raspberry Pi.",
   "scripts": {
     "dev": "next dev",

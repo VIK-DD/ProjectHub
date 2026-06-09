@@ -25,6 +25,9 @@ prisma/*.db-journal
 /.logs
 /tests/.tmp
 
+# Claude Code local tooling (preview config + local settings)
+/.claude
+
 # misc
 .DS_Store
 *.pem
