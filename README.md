@@ -394,14 +394,17 @@ you'd like to change. Run `npm run lint` and `npm test` before submitting.
 
 ---
 
+<div align="center">
 ## 📄 License
 
 Licensed under the **Apache License 2.0** — see [LICENSE](LICENSE) for details.
 
 Copyright © 2026 VIK-DD.
 
+</div>
+
 <div align="center">
 
-Made to be calm, fast, and yours. Made in Moldova 🇲🇩
+Made to be calm, fast, and yours <b> · </b> Made in Moldova 🇲🇩
 
 </div>
