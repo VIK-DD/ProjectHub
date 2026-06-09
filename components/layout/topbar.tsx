@@ -31,7 +31,7 @@ export function Topbar({
     window.dispatchEvent(new Event("projecthub:command"));
 
   return (
-    <header className="sticky top-0 z-20 flex h-14 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur-md lg:px-6">
+    <header className="sticky top-0 z-20 flex h-14 items-center gap-2 border-b bg-background/95 px-4 lg:px-6">
       <MobileSidebar />
       <button
         onClick={openCommand}

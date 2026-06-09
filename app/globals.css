@@ -170,7 +170,7 @@
       linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
   }
   .error-card {
-    @apply w-full max-w-xl rounded-3xl border border-border/70 bg-card/90 p-8 shadow-2xl shadow-black/10 backdrop-blur;
+    @apply w-full max-w-xl rounded-3xl border border-border/70 bg-card p-8 shadow-2xl shadow-black/10;
   }
   .error-eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.28em] text-primary;
