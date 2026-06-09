@@ -394,17 +394,15 @@ you'd like to change. Run `npm run lint` and `npm test` before submitting.
 
 ---
 
-<div align="center">
-## 📄 License
+<a id="-license"></a>
 
-Licensed under the **Apache License 2.0** — see [LICENSE](LICENSE) for details.
+<h2 align="center">📄 License</h2>
 
-Copyright © 2026 VIK-DD.
+<p align="center">
+  Licensed under the <strong>Apache License 2.0</strong> — see <a href="LICENSE"><strong>LICENSE</strong></a> for details.<br/>
+  <strong>Copyright © 2026 VIK-DD</strong>
+</p>
 
-</div>
-
-<div align="center">
-
-Made to be calm, fast, and yours <b> · </b> Made in Moldova 🇲🇩
-
-</div>
+<p align="center">
+  <sub><strong>Made to be calm, fast, and yours</strong> · Made in Moldova 🇲🇩</sub>
+</p>
