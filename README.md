@@ -258,10 +258,9 @@ pm2 start bot/bot.mjs --name projecthub-bot && pm2 save
 Then, in ProjectHub: **Settings → Telegram → Connect Telegram** to get a code, and send
 it to the bot: `/link ABC123`. Done — the bot now acts as you.
 
-<!-- 📷 Want to show it off? Drop a screenshot of your Telegram chat at
-     docs/screenshots/telegram-bot.png and uncomment the line below:
-<div align="center"><img src="docs/screenshots/telegram-bot.png" alt="Telegram bot" width="380"/></div>
--->
+<div align="center">
+  <img src="docs/screenshots/telegram-bot.png" alt="ProjectHub Telegram bot" width="400"/>
+</div>
 
 ---
 
