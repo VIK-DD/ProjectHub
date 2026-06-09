@@ -8,10 +8,16 @@
 //
 // Run:  npm run bot      (or pm2 start bot/bot.mjs --name projecthub-bot)
 //
+import dns from "node:dns";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PrismaClient } from "@prisma/client";
+
+// Raspberry Pi often has no working IPv6 route. Node's fetch (undici) tries
+// IPv6 first and throws "fetch failed" on getUpdates even though the Pi can
+// reach api.telegram.org over IPv4 (curl returns 302). Force IPv4 resolution.
+dns.setDefaultResultOrder("ipv4first");
 import {
   esc,
   startOfToday,
@@ -2089,7 +2095,9 @@ function startScheduler() {
 // --- long-polling ----------------------------------------------------------
 let offset = 0;
 async function poll() {
-  const res = await tg("getUpdates", { timeout: 50, offset, allowed_updates: ["message", "callback_query"] });
+  // 30s long-poll (was 50s): shorter idle connections are less likely to be
+  // dropped by router/NAT timeouts, which showed up as rare "fetch failed".
+  const res = await tg("getUpdates", { timeout: 30, offset, allowed_updates: ["message", "callback_query"] });
   if (res?.ok) {
     for (const u of res.result) {
       offset = u.update_id + 1;
