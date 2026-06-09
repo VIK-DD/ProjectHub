@@ -1,6 +1,8 @@
 <div align="center">
 
-# 📦 ProjectHub
+<img src="docs/assets/logo.png" alt="ProjectHub logo" width="170"/>
+
+# ProjectHub
 
 ### A premium, self-hosted project-management platform — built to run anywhere, even a Raspberry Pi.
 
@@ -259,7 +261,7 @@ Then, in ProjectHub: **Settings → Telegram → Connect Telegram** to get a cod
 it to the bot: `/link ABC123`. Done — the bot now acts as you.
 
 <div align="center">
-  <img src="docs/screenshots/telegram-bot.png" alt="ProjectHub Telegram bot" width="400"/>
+  <img src="docs/screenshots/telegram-bot-card.png" alt="ProjectHub Telegram bot — @ProjectHubBot" width="460"/>
 </div>
 
 ---
@@ -400,6 +402,6 @@ Copyright © 2026 VIK-DD.
 
 <div align="center">
 
-Made to be calm, fast, and yours. Enjoy shipping. 🚀
+Made to be calm, fast, and yours. Made in Moldova 🇲🇩
 
 </div>
