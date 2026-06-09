@@ -25,11 +25,6 @@ productivity in analytics — in a calm, fast, light/dark interface inspired by
 [![Runs on Raspberry Pi](https://img.shields.io/badge/runs%20on-Raspberry%20Pi-A22846?logo=raspberrypi&logoColor=white)](#-running-on-a-raspberry-pi)
 [![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20RO%20✓-success)](#-languages--internationalization)
 [![Self-hosted](https://img.shields.io/badge/self--hosted-no%20vendor%20lock--in%20✓-success)](#-running-on-a-raspberry-pi)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
-
-[![Stars](https://img.shields.io/github/stars/VIK-DD/ProjectHub?style=social)](https://github.com/VIK-DD/ProjectHub/stargazers)
-[![Issues](https://img.shields.io/github/issues/VIK-DD/ProjectHub)](https://github.com/VIK-DD/ProjectHub/issues)
-[![Last commit](https://img.shields.io/github/last-commit/VIK-DD/ProjectHub)](https://github.com/VIK-DD/ProjectHub/commits)
 
 <br/>
 
