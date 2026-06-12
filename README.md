@@ -329,7 +329,7 @@ needs HTTPS for full install; iOS Safari works over your LAN.)
 
 ## ⌨️ Keyboard shortcuts
 
-- **⌘K / Ctrl-K** — open the command palette (search, navigate, create a task in any project, toggle theme).
+- **⌘K / Ctrl-K** — open the command palette (search, navigate, create a task in any project, toggle theme) -
 
 ---
 
