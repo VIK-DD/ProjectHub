@@ -14,7 +14,7 @@ productivity in analytics — in a calm, fast, light/dark interface inspired by
 
 [![Version](https://img.shields.io/badge/version-1.0.0-6d28d9)](https://github.com/VIK-DD/ProjectHub/releases/latest)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io/)
@@ -123,10 +123,10 @@ productivity in analytics — in a calm, fast, light/dark interface inspired by
 
 | Layer      | Choice                                              |
 | ---------- | --------------------------------------------------- |
-| Framework  | Next.js 14 (App Router) · React 18 · TypeScript 5   |
+| Framework  | Next.js 15 (App Router) · React 18 · TypeScript 5   |
 | Styling    | Tailwind CSS · shadcn-style UI · Radix primitives   |
 | Data       | Prisma ORM · **SQLite** (swappable to PostgreSQL)   |
-| Auth       | NextAuth (credentials, JWT sessions)                |
+| Auth       | Auth.js v5 / NextAuth (credentials, JWT sessions)   |
 | Mutations  | Server Actions                                      |
 | Charts     | Recharts                                            |
 | Companion  | Telegram bot (zero-dependency, long-polling ESM)    |
