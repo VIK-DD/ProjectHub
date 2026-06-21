@@ -1,10 +1,10 @@
-import { withAuth } from "next-auth/middleware";
+import NextAuth from "next-auth";
+import { authConfig } from "@/lib/auth.config";
 
 // Protect every authenticated section of the app. Unauthenticated visitors are
-// sent to /login automatically.
-export default withAuth({
-  pages: { signIn: "/login" },
-});
+// sent to /login automatically (via the `authorized` callback in auth.config).
+// Uses the edge-safe config only — no Prisma in the middleware bundle.
+export const { auth: middleware } = NextAuth(authConfig);
 
 export const config = {
   matcher: [

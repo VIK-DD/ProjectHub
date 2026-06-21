@@ -28,8 +28,8 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
-export function TimeReportCard({ report }: { report: TimeReport }) {
-  const t = getT();
+export async function TimeReportCard({ report }: { report: TimeReport }) {
+  const t = await getT();
   const maxDay = Math.max(1, ...report.perDay);
   const maxProj = Math.max(1, ...report.perProject.map((p) => p.seconds));
   const hasData = report.allTime > 0;

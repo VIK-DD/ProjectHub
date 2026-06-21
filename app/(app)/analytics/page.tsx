@@ -76,10 +76,10 @@ function ReviewList({ items, empty }: { items: string[]; empty: string }) {
 export default async function AnalyticsPage({
   searchParams,
 }: {
-  searchParams: { tab?: string };
+  searchParams: Promise<{ tab?: string }>;
 }) {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
   const [data, timeReport, weekly] = await Promise.all([
     getAnalyticsData(user.id),
     getTimeReport(user.id),
@@ -306,7 +306,7 @@ export default async function AnalyticsPage({
       />
 
       <AnalyticsTabs
-        defaultTab={searchParams.tab}
+        defaultTab={(await searchParams).tab}
         overviewLabel={t("an.tabOverview")}
         reviewLabel={t("an.tabReview")}
         overview={overview}

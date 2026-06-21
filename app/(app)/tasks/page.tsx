@@ -16,21 +16,21 @@ export const metadata: Metadata = { title: "Tasks" };
 export default async function TasksPage({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     new?: string;
     title?: string;
     search?: string;
     project?: string;
     priority?: string;
     viewMode?: string;
-  };
+  }>;
 }) {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
   // Lets ⌘K "New task in project X" open the create dialog pre-scoped.
   const createProjectId =
-    searchParams.project && searchParams.project !== "all"
-      ? searchParams.project
+    (await searchParams).project && (await searchParams).project !== "all"
+      ? (await searchParams).project
       : undefined;
 
   const [tasks, projects, archivedIds, savedViews] = await Promise.all([
@@ -88,9 +88,9 @@ export default async function TasksPage({
       >
         <TaskCreateButton
           projects={projects.filter((project) => !archivedIds.has(project.id))}
-          defaultOpen={searchParams.new === "1"}
+          defaultOpen={(await searchParams).new === "1"}
           defaultProjectId={createProjectId}
-          defaultTitle={searchParams.title}
+          defaultTitle={(await searchParams).title}
         />
       </PageHeader>
 
@@ -103,7 +103,7 @@ export default async function TasksPage({
             <TaskCreateButton
               projects={projects.filter((project) => !archivedIds.has(project.id))}
               defaultProjectId={createProjectId}
-              defaultTitle={searchParams.title}
+              defaultTitle={(await searchParams).title}
             />
           }
         />
@@ -113,10 +113,10 @@ export default async function TasksPage({
           projects={projects.filter((project) => !archivedIds.has(project.id))}
           savedViews={savedViews}
           initialFilters={{
-            search: searchParams.search ?? "",
-            project: searchParams.project ?? "all",
-            priority: searchParams.priority ?? "all",
-            viewMode: searchParams.viewMode ?? "board",
+            search: (await searchParams).search ?? "",
+            project: (await searchParams).project ?? "all",
+            priority: (await searchParams).priority ?? "all",
+            viewMode: (await searchParams).viewMode ?? "board",
           }}
         />
       )}

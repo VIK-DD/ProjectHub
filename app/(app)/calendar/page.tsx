@@ -14,7 +14,7 @@ export const metadata: Metadata = { title: "Calendar" };
 
 export default async function CalendarPage() {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
 
   const [tasks, projectsWithDue, projectOptions, archivedIds] = await Promise.all([
     prisma.task.findMany({

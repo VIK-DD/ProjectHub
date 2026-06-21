@@ -42,7 +42,7 @@ export default async function DashboardPage() {
     buildWeeklyReview(user.id),
     getActivityLog(user.id, 60),
   ]);
-  const t = getT();
+  const t = await getT();
   const firstName = (user.name || user.email || "there").split(/[\s@]/)[0];
 
   return (

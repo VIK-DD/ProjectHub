@@ -73,14 +73,14 @@ function MiniStat({
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
 
   const [project, projectOptions, archivedIds] = await Promise.all([
     prisma.project.findFirst({
-      where: { id: params.id, ...accessibleProjectsWhere(user.id) },
+      where: { id: (await params).id, ...accessibleProjectsWhere(user.id) },
       include: {
         user: { select: { id: true, name: true, email: true, image: true } },
         members: {

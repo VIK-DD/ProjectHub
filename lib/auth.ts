@@ -1,5 +1,5 @@
-import type { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 import {
@@ -7,12 +7,12 @@ import {
   isRateLimited,
   recordFailedAttempt,
 } from "@/lib/rate-limit";
+import { authConfig } from "@/lib/auth.config";
 
-export const authOptions: NextAuthOptions = {
-  session: { strategy: "jwt" },
-  pages: { signIn: "/login" },
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  ...authConfig,
   providers: [
-    CredentialsProvider({
+    Credentials({
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "email" },
@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
 
-        const email = credentials.email.toLowerCase().trim();
+        const email = String(credentials.email).toLowerCase().trim();
         const key = `login:${email}`;
 
         // Throttle brute-force attempts.
@@ -34,7 +34,7 @@ export const authOptions: NextAuthOptions = {
         }
 
         const valid = await bcrypt.compare(
-          credentials.password,
+          String(credentials.password),
           user.passwordHash,
         );
         if (!valid) {
@@ -52,27 +52,4 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  callbacks: {
-    jwt({ token, user, trigger, session }) {
-      if (user) token.id = user.id;
-      // Allow the client to push fresh profile data into the JWT after an
-      // account update (called via useSession().update(...)).
-      if (trigger === "update" && session) {
-        if (typeof session.name === "string") token.name = session.name;
-        if (typeof session.email === "string") token.email = session.email;
-        if ("picture" in session) token.picture = session.picture ?? null;
-      }
-      return token;
-    },
-    session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.id as string;
-        if (token.name) session.user.name = token.name;
-        if (token.email) session.user.email = token.email;
-        session.user.image = (token.picture as string | null) ?? null;
-      }
-      return session;
-    },
-  },
-  secret: process.env.NEXTAUTH_SECRET,
-};
+});

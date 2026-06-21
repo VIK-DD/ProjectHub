@@ -52,15 +52,15 @@ function MetaRow({
 export default async function TaskDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
 
   const [task, projectOptions] = await Promise.all([
     prisma.task.findFirst({
       where: {
-        id: params.id,
+        id: (await params).id,
         OR: [
           { userId: user.id },
           { assigneeId: user.id },

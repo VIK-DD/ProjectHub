@@ -15,17 +15,17 @@ export const metadata: Metadata = { title: "Notes" };
 export default async function NotesPage({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     new?: string;
     note?: string;
     title?: string;
     search?: string;
     project?: string;
     pinned?: string;
-  };
+  }>;
 }) {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
 
   const [notes, projects, archivedIds, savedViews] = await Promise.all([
     prisma.note.findMany({
@@ -65,8 +65,8 @@ export default async function NotesPage({
       <PageHeader title={t("page.notes.title")} description={t("page.notes.desc")}>
         <NoteCreateButton
           projects={activeProjects}
-          defaultOpen={searchParams.new === "1"}
-          defaultTitle={searchParams.title}
+          defaultOpen={(await searchParams).new === "1"}
+          defaultTitle={(await searchParams).title}
         />
       </PageHeader>
 
@@ -79,7 +79,7 @@ export default async function NotesPage({
             <NoteCreateButton
               projects={activeProjects}
               label="Create note"
-              defaultTitle={searchParams.title}
+              defaultTitle={(await searchParams).title}
             />
           }
         />
@@ -89,11 +89,11 @@ export default async function NotesPage({
           projects={activeProjects}
           savedViews={savedViews}
           initialFilters={{
-            search: searchParams.search ?? "",
-            project: searchParams.project ?? "all",
-            pinned: searchParams.pinned ?? "",
+            search: (await searchParams).search ?? "",
+            project: (await searchParams).project ?? "all",
+            pinned: (await searchParams).pinned ?? "",
           }}
-          defaultOpenNoteId={searchParams.note}
+          defaultOpenNoteId={(await searchParams).note}
         />
       )}
     </div>

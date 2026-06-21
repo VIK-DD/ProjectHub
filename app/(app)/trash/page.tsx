@@ -12,7 +12,7 @@ export const metadata: Metadata = { title: "Trash" };
 
 export default async function TrashPage() {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
   const trashed = { deletedAt: { not: null } } as const;
 
   const [projects, tasks, bugs, notes] = await Promise.all([

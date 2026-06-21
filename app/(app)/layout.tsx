@@ -30,7 +30,7 @@ export default async function AppLayout({
     }),
   ]);
 
-  const locale = getLocale();
+  const locale = await getLocale();
 
   return (
     <I18nProvider locale={locale}>

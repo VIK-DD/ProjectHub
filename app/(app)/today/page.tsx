@@ -15,7 +15,7 @@ export const metadata: Metadata = { title: "Today" };
 
 export default async function TodayPage() {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
   const now = new Date();
 
   const [tasks, projectOptions, archivedIds] = await Promise.all([

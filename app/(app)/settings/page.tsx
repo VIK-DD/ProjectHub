@@ -16,7 +16,7 @@ export const metadata: Metadata = { title: "Settings" };
 
 export default async function SettingsPage() {
   const sessionUser = await requireUser();
-  const t = getT();
+  const t = await getT();
   const user = await prisma.user.findUnique({
     where: { id: sessionUser.id },
     select: {

@@ -16,10 +16,10 @@ export const metadata: Metadata = { title: "Projects" };
 export default async function ProjectsPage({
   searchParams,
 }: {
-  searchParams: { new?: string; search?: string; status?: string; tag?: string };
+  searchParams: Promise<{ new?: string; search?: string; status?: string; tag?: string }>;
 }) {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
 
   const [projects, archivedIds, savedViews] = await Promise.all([
     prisma.project.findMany({
@@ -47,7 +47,7 @@ export default async function ProjectsPage({
         title={t("page.projects.title")}
         description={t("page.projects.desc", { n: active.length })}
       >
-        <ProjectCreateButton defaultOpen={searchParams.new === "1"} />
+        <ProjectCreateButton defaultOpen={(await searchParams).new === "1"} />
       </PageHeader>
 
       {active.length === 0 && archived.length === 0 ? (
@@ -75,9 +75,9 @@ export default async function ProjectsPage({
           }))}
           savedViews={savedViews}
           initialFilters={{
-            search: searchParams.search ?? "",
-            status: searchParams.status ?? "all",
-            tag: searchParams.tag ?? "",
+            search: (await searchParams).search ?? "",
+            status: (await searchParams).status ?? "all",
+            tag: (await searchParams).tag ?? "",
           }}
         />
       )}

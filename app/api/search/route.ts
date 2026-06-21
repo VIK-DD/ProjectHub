@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { getArchivedProjectIds, getSavedViews } from "@/lib/feature-store";
 
 // Returns a compact index of the user's content for the ⌘K palette to filter
 // client-side. Capped so it stays fast even with lots of data.
 export async function GET() {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }

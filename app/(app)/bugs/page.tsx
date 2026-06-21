@@ -15,7 +15,7 @@ export const metadata: Metadata = { title: "Bugs" };
 export default async function BugsPage({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     new?: string;
     title?: string;
     bug?: string;
@@ -23,10 +23,10 @@ export default async function BugsPage({
     severity?: string;
     status?: string;
     project?: string;
-  };
+  }>;
 }) {
   const user = await requireUser();
-  const t = getT();
+  const t = await getT();
 
   const [bugs, projects, archivedIds, savedViews] = await Promise.all([
     prisma.bug.findMany({
@@ -67,8 +67,8 @@ export default async function BugsPage({
       >
         <BugCreateButton
           projects={projects.filter((project) => !archivedIds.has(project.id))}
-          defaultOpen={searchParams.new === "1"}
-          defaultTitle={searchParams.title}
+          defaultOpen={(await searchParams).new === "1"}
+          defaultTitle={(await searchParams).title}
         />
       </PageHeader>
 
@@ -80,7 +80,7 @@ export default async function BugsPage({
           action={
             <BugCreateButton
               projects={projects.filter((project) => !archivedIds.has(project.id))}
-              defaultTitle={searchParams.title}
+              defaultTitle={(await searchParams).title}
             />
           }
         />
@@ -89,12 +89,12 @@ export default async function BugsPage({
           bugs={data}
           projects={projects.filter((project) => !archivedIds.has(project.id))}
           savedViews={savedViews}
-          openBugId={searchParams.bug}
+          openBugId={(await searchParams).bug}
           initialFilters={{
-            search: searchParams.search ?? "",
-            severity: searchParams.severity ?? "all",
-            status: searchParams.status ?? "all",
-            project: searchParams.project ?? "all",
+            search: (await searchParams).search ?? "",
+            severity: (await searchParams).severity ?? "all",
+            status: (await searchParams).status ?? "all",
+            project: (await searchParams).project ?? "all",
           }}
         />
       )}
